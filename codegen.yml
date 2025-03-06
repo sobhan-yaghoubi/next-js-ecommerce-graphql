@@ -1,0 +1,8 @@
+schema: https://apistaging.jensetjoor.com/graphql
+documents: "lib/graphql/**/*.graphql"
+generates:
+  lib/graphql-types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node

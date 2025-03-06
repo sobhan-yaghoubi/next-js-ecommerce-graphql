@@ -19,13 +19,6 @@ export const fetchGraphql = async <T, G = null>(
 ): Promise<{ status: number; data: T }> => {
   try {
     const queryString = typeof query === "string" ? query : print(query)
-    console.log(
-      "DDDDDD",
-      JSON.stringify({
-        queryString,
-        ...(options.variables && options.variables),
-      })
-    )
     const response = await fetch(endpoint, {
       method: "POST",
       headers: {
@@ -33,8 +26,8 @@ export const fetchGraphql = async <T, G = null>(
         ...(options.headers || {}),
       },
       body: JSON.stringify({
-        queryString,
-        ...(options.variables && options.variables),
+        query: queryString,
+        ...(options.variables && { variables: options.variables }),
       }),
       next: options.next || { revalidate: 60 }, // For ISR Request
     })
