@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "apistaging.jensetjoor.com",
+        hostname: "api.jensetjoor.com",
         pathname: "/media/**",
       },
     ],

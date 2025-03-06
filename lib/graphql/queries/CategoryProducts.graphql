@@ -1,5 +1,5 @@
-query ProductPage2($urlKey: String!) {
-  products(filter: { url_key: { eq: $urlKey } }) {
+query CategoryProducts($categoryId: String!) {
+  products(filter: { category_id: { eq: $categoryId } }) {
     items {
       __typename
       uid
