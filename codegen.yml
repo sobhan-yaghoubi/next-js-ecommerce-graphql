@@ -1,7 +1,7 @@
-schema: https://api.jensetjoor.com/graphql
+schema: https://apistaging.jensetjoor.com/graphql
 documents: "lib/graphql/**/*.graphql"
 generates:
-  lib/graphql-types.ts:
+  lib/graphqlTypes.ts:
     plugins:
       - typescript
       - typescript-operations

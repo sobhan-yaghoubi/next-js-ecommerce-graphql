@@ -1,18 +1,5 @@
-query CategoryProducts($categoryId: String!) {
-  products(filter: { category_id: { eq: $categoryId } }) {
-    items {
-      __typename
-      uid
-      url_key
-      canonical_url_custom
-      name
-      image {
-        url
-        label
-      }
-      thumbnail {
-        url
-      }
-    }
+query CategoryProducts($categoryId: String!, $pageSize: Int = 16) {
+  products(filter: { category_id: { eq: $categoryId } }, pageSize: $pageSize) {
+    ...ItemsProduct
   }
 }

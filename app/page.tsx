@@ -11,7 +11,9 @@ export default async function Home() {
   const data = await fetchGraphql<
     CategoryProductsQuery,
     CategoryProductsQueryVariables
-  >(CategoryProductsDocument, { variables: { categoryId: "43" } });
+  >(CategoryProductsDocument, {
+    variables: { categoryId: "19", pageSize: 10000 },
+  });
 
   return (
     <>

@@ -1,18 +1,5 @@
 query ProductPage2($urlKey: String!) {
   products(filter: { url_key: { eq: $urlKey } }) {
-    items {
-      __typename
-      uid
-      url_key
-      canonical_url_custom
-      name
-      image {
-        url
-        label
-      }
-      thumbnail {
-        url
-      }
-    }
+    ...ItemsProduct
   }
 }
