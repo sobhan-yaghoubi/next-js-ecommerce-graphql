@@ -36,7 +36,7 @@ const ProductPage = async ({
   const product = data.data.products?.items?.at(0);
   const relatedProducts = product?.related_products;
   return (
-    <div className="flex flex-col items-center">
+    <div className="container mx-auto mt-20 flex flex-col items-center gap-10">
       {product?.image?.url ? (
         <Image
           src={product?.image?.url}
@@ -46,13 +46,18 @@ const ProductPage = async ({
         />
       ) : null}
       <h1 className="text-7xl">{product?.name}</h1>
-      <p>{JSON.stringify(product?.short_description?.html)}</p>
-      <p>{product?.price_range.maximum_price?.final_price.value}</p>
-
-      <div className="flex items-center gap-10">
+      <p>
+        <span>تومان</span>{" "}
+        <span>
+          {product?.price_range.maximum_price?.final_price.value?.toLocaleString(
+            "en-US",
+          )}
+        </span>
+      </p>
+      <div className="grid w-full grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-10">
         {relatedProducts?.map((relatedProducts) => (
           <div
-            className="flex flex-col items-center justify-center"
+            className="center col-span-1 flex-col gap-5 rounded-md border-2 p-5 text-center"
             key={relatedProducts?.uid}
           >
             {relatedProducts?.image?.url ? (
@@ -60,6 +65,7 @@ const ProductPage = async ({
                 src={relatedProducts?.image?.url}
                 width={150}
                 height={150}
+                className="h-36 w-auto"
                 alt={`Image-${relatedProducts.uid}`}
               />
             ) : null}

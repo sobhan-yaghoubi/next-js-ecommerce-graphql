@@ -1,4 +1,4 @@
-schema: https://apistaging.jensetjoor.com/graphql
+schema: https://api.jensetjoor.com/graphql
 documents: "lib/graphql/**/*.graphql"
 generates:
   lib/graphqlTypes.ts:
